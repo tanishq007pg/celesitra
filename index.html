@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestira</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="main-nav">
+            <Span id="nav-span">Celestira</Span>
+        </div>
+        <div class="tonav">
+            <a class="oa" href="#secA">Home</a>
+            <a class="oa" href="#secB">Products</a>
+            <a class="oa" href="#secC">Reviews</a>
+            <a class="oa" href="#secD">Store</a>
+            <a class="oa" href="#social">Links</a>
+        </div>
+    </nav>
+    <main>
+        <section class="sec" id="secA">
+            <div id="ct-div">
+    <h1 style="font-size: 4rem; font-weight: 800; margin-bottom: 2.5vh; font-family: 'Poppins', sans-serif;">
+        Welcome to <span style="color: #ff69b4;">Celestira</span>
+    </h1>
+    <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; line-height: 2; font-weight: 500;">
+        Discover the true essence of beauty with <strong>Celestira</strong> — your trusted destination for premium, cruelty-free cosmetics designed to empower confidence and self-expression. Whether you're looking for radiant skincare, vibrant makeup, or daily essentials, we’re here to help you shine from the inside out.
+    </p>
+    <p style="font-size: 1.3rem; margin-top: 2.5vh; font-weight: 500;">
+        ✨ Handcrafted with care • 🌸 Infused with love • 💄 Made for every skin
+    </p>
+    <a href="#secB">
+        <button style="margin-top: 3vh; font-size: 1.3rem; padding: 12px 28px;" class="order-btn">
+            🌟 Explore Our Collection
+        </button>
+    </a>
+</div>
+
+        </section>
+        <section class="sec" id="secB">
+            <div id="sec2div">
+                <p id="p2">Here are some Products Recently Launched by us</p>
+            </div>
+            <div id="grid-items">
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+                <div class="p"><img class="img" src="img.png" alt=""></div>
+            </div>
+            <a href="https://wa.me/918447820157?text=Hi%20Celestira%2C%20I%20want%20to%20place%20an%20order." target="_blank">
+    <button class="order-btn">📦 Order Now!!!</button>
+</a>
+        </section>
+    </section>
+    <section class="sec" id="secC">
+    <h2 style="text-align:center; font-size:2.5rem;">💬 Customer Reviews</h2>
+    <div id="reviews-container" style="padding: 2vh 5vw; max-width: 800px; margin: auto;">
+        <!-- Fake reviews go here -->
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <button onclick="openReviewForm()" style="padding: 10px 20px; font-size: 1.1rem; background-color: #ff69b4; color: white; border: none; border-radius: 10px; cursor: pointer;">
+            ⭐ Rate Now
+        </button>
+    </div>
+</section>
+
+
+
+    <section class="sec" id="secD">
+        <h2 style="text-align:center; font-size:2rem;">We are currently not avaiable with any store :(</h2>
+        <div style="display: flex; justify-content: center; padding: 2vh;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.7795342877653!2d77.22950867485496!3d28.671402682151394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd41fbe10301%3A0x96b299a5cb56f257!2sDelhi!5e0!3m2!1sen!2sin!4v1625587221972!5m2!1sen!2sin" width="90%" height="450" style="border:0; border-radius: 2vh;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+
+        <section class="sec" id="secE">
+            <section class="sec" id="social">
+                <h2 style="text-align:center; font-size:2rem;">Connect with Us</h2>
+                <div style="display: flex; justify-content: center; gap: 3vw; padding: 4vh;">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-3x" style="color: #e1306c;"></i></a>
+                    <a href="https://x.com.com" target="_blank"><i class="fab fa-twitter fa-3x" style="color: #1da1f2;"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-3x" style="color: #3b5998;"></i></a>
+                </div>
+            </section>
+        </section>
+    </main>
+<section id="sec-id">
+    <div id="reviewModal" class="modal">
+    <div class="modal-content" style="max-width: 400px;">
+        <span class="closeBtn" onclick="closeReviewForm()">&times;</span>
+        <h3 style="margin-bottom: 1vh;">Login to Rate Product</h3>
+        <input type="text" id="userName" placeholder="Your Name" style="width: 90%; margin: 1vh 0; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"><br>
+        <input type="email" id="userEmail" placeholder="Your Email" style="width: 90%; margin: 1vh 0; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"><br>
+        <select id="userRating" style="width: 95%; margin: 1vh 0; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+            <option value="4">⭐⭐⭐⭐ - Good</option>
+            <option value="3">⭐⭐⭐ - Average</option>
+            <option value="2">⭐⭐ - Poor</option>
+            <option value="1">⭐ - Terrible</option>
+        </select>
+        <textarea id="userComment" placeholder="Write your review..." style="width: 90%; height: 100px; padding: 10px; border-radius: 8px; margin-top: 1vh;"></textarea>
+        <br>
+        <button onclick="submitReview()" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 10px; margin-top: 1vh;">Submit Review</button>
+    </div>
+</div>
+</section>
+
+    <footer class="footer">
+        © 2025 Celestira. All rights reserved.
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
