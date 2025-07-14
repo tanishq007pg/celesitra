@@ -58,3 +58,8 @@ function checkout() {
   const whatsappURL = `https://wa.me/918447820157?text=${encoded}`;
   window.open(whatsappURL, "_blank");
 }
+function toggleMenu() {
+  const navLinks = document.getElementById('nav-links');
+  navLinks.classList.toggle('active');
+}
+
