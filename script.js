@@ -1,58 +1,60 @@
-const reviewModal = document.getElementById('reviewModal');
-const reviewsContainer = document.getElementById('reviews-container');
+let cart = [];
+let isLoggedIn = false;
 
-// Fake default reviews
-const reviews = [
-    { name: "Ananya", rating: 5, comment: "The lip gloss is super glossy and lasts long! 💄" },
-    { name: "Rhea", rating: 4, comment: "Loved the fragrance in your perfumes. Very classy!" },
-    { name: "Tanya", rating: 5, comment: "The best skin serum I’ve ever used. Highly recommend!" },
-    { name: "Simran", rating: 3, comment: "Lipstick was okay, could be better in texture." }
-];
+function userLoggedIn() {
+  isLoggedIn = true;
+  alert("🎉 You are now logged in!");
 
-function displayReviews() {
-    reviewsContainer.innerHTML = '';
-    reviews.forEach(r => {
-        const stars = '⭐'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
-        reviewsContainer.innerHTML += `
-            <div style="margin-bottom: 2vh; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-                <p><strong>${r.name}</strong> — <span style="color: gold;">${stars}</span></p>
-                <p style="color: #555;">${r.comment}</p>
-            </div>
-        `;
-    });
+  // Enable buttons
+  document.querySelectorAll("button[onclick^='addToCart']").forEach(btn => {
+    btn.disabled = false;
+  });
+
+  document.getElementById("checkout-btn").disabled = false;
 }
 
-function openReviewForm() {
-    reviewModal.style.display = 'block';
+function addToCart(product, price) {
+  cart.push({ product, price });
+  renderCart();
 }
 
-function closeReviewForm() {
-    reviewModal.style.display = 'none';
+function renderCart() {
+  const cartItems = document.getElementById("cart-items");
+  const total = document.getElementById("cart-total");
+  cartItems.innerHTML = '';
+  let sum = 0;
+
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `${item.product} - ₹${item.price} <button onclick="removeFromCart(${index})" style="margin-left: 10px; background: red; color: white; border: none; border-radius: 5px; cursor: pointer;">❌</button>`;
+
+    cartItems.appendChild(li);
+    sum += item.price;
+  });
+
+  total.innerText = `Total: ₹${sum}`;
 }
 
-function submitReview() {
-    const name = document.getElementById("userName").value;
-    const email = document.getElementById("userEmail").value;
-    const rating = parseInt(document.getElementById("userRating").value);
-    const comment = document.getElementById("userComment").value;
-
-    if (!name || !email || !comment) {
-        alert("Please fill in all fields.");
-        return;
-    }
-
-    reviews.unshift({ name, rating, comment });
-    displayReviews();
-    closeReviewForm();
-    alert("Thanks for your review!");
+function removeFromCart(index) {
+  cart.splice(index, 1); // remove item from cart
+  renderCart();          // re-render cart
 }
 
-// Close on click outside modal
-window.onclick = function(event) {
-    if (event.target == reviewModal) {
-        closeReviewForm();
-    }
-}
 
-// On page load
-displayReviews();
+function checkout() {
+  if (!isLoggedIn) {
+    alert("Please login/register before checking out.");
+    return;
+  }
+
+  let message = "Hello, I'd like to place an order:\n";
+  cart.forEach(item => {
+    message += `- ${item.product} (₹${item.price})\n`;
+  });
+  const total = cart.reduce((acc, cur) => acc + cur.price, 0);
+  message += `Total: ₹${total}`;
+
+  const encoded = encodeURIComponent(message);
+  const whatsappURL = `https://wa.me/918447820157?text=${encoded}`;
+  window.open(whatsappURL, "_blank");
+}
